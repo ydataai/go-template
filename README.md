@@ -1,1 +1,2 @@
-# template-go-application
+# Go Application Template Repository
+
