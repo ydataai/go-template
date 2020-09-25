@@ -1,8 +1,3 @@
-include .env
-export $(shell sed 's/=.*//' .env)
-
-GOPATH=$(shell go env GOPATH)
-
 APP_NAME := template-go-application
 API_PORT := 8080
 GO_VERSION := 1.15
@@ -11,7 +6,7 @@ define docker_run
 	@docker run -it --rm \
 	-v "$$(pwd):/app" \
 	-p $(API_PORT):$(API_PORT) \
-	-e VAR=foo \
+	--env-file .env \
 	--name $(APP_NAME) \
 	-w "/app" \
 	golang:$(GO_VERSION) $1
