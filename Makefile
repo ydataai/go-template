@@ -1,3 +1,8 @@
+include .env
+export $(shell sed 's/=.*//' .env)
+
+GOPATH=$(shell go env GOPATH)
+
 APP_NAME := template-go-application
 API_PORT := 8080
 GO_VERSION := 1.15
