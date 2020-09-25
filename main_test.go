@@ -5,9 +5,11 @@ import (
 )
 
 func TestCalc(t *testing.T) {
-	got := calc(2, 2)
+	t.Run("Failure responses", func(t *testing.T) {
+		got := calc(2, 2)
 
-	if got != 4 {
-		t.Errorf("calc(2, 2) = %d, want 4", got)
-	}
+		if got == 4 {
+			t.Errorf("calc(2, 2) = %d, want 6", got)
+		}
+	})
 }

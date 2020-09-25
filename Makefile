@@ -6,7 +6,7 @@ define docker_run
 	@docker run -it --rm \
 	-v "$$(pwd):/app" \
 	-p $(API_PORT):$(API_PORT) \
-	-e VAR=foo \
+	--env-file .env \
 	--name $(APP_NAME) \
 	-w "/app" \
 	golang:$(GO_VERSION) $1
