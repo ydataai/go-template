@@ -1,16 +1,14 @@
 name: Merge master
 
-# FIX: remove the following line and uncomment the others to continue
-on: {}
-# on:
-#   push:
-#     branches:
-#     - master
+on:
+  push:
+    branches:
+    - master
 
 
 jobs:
   prepare:
-    name: Calculate Version and build number
+    name: Calculate Version and Build number
     runs-on: ubuntu-20.04
 
     outputs:

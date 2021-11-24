@@ -1,22 +1,21 @@
 name: Prereleased
 
-# FIX: remove the following line and uncomment the others to continue
-on: {}
-# on:
-#   release:
-#     types:
-#     - prereleased
+on:
+  release:
+    types:
+    - prereleased
 
 
 env:
-  COMPONENT: laboratory-controller
-  COMPONENT_PATH: apps/laboratory-controller
+  # FIX: fill the <controller name> and check if you need all the containers
+  COMPONENT: <controller name>
+  COMPONENT_PATH: apps/<controller name>
 
   API_CONTAINER: api_container_image
-  API_DOCKER_IMAGE_URL: ${{ secrets.PRIVATE_CONTAINER_REGISTRY }}/${{ github.repository_owner }}/laboratory-controller/api
+  API_DOCKER_IMAGE_URL: ${{ secrets.PRIVATE_CONTAINER_REGISTRY }}/${{ github.repository_owner }}/<controller name>/api
 
   MANAGER_CONTAINER: manager_container_image
-  MANAGER_DOCKER_IMAGE_URL: ${{ secrets.PRIVATE_CONTAINER_REGISTRY }}/${{ github.repository_owner }}/laboratory-controller/manager
+  MANAGER_DOCKER_IMAGE_URL: ${{ secrets.PRIVATE_CONTAINER_REGISTRY }}/${{ github.repository_owner }}/<controller name>/manager
 
 
 jobs:
