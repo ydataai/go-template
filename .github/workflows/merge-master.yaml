@@ -34,7 +34,7 @@ jobs:
 
     - name: Git Short sha
       id: short_sha
-      run: echo "::set-output name=value::$(git rev-parse --short HEAD)"
+      run: echo "value=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
 
   build:
@@ -72,9 +72,7 @@ jobs:
     if: needs.prepare.outputs.new_release == 'true'
 
     name: Dev and Draft Releases
-    runs-on:
-    - self-hosted
-    - micro
+    runs-on: ubuntu-20.04
 
     needs:
     - prepare
