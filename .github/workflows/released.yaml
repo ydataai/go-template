@@ -37,7 +37,7 @@ jobs:
     name: 'Cancel Previous Runs'
     runs-on:
     - self-hosted
-    - micro
+    - small
     timeout-minutes: 3
 
     steps:
@@ -51,7 +51,7 @@ jobs:
     name: Extract Version and Build number
     runs-on:
     - self-hosted
-    - micro
+    - small
 
     outputs:
       build_number: ${{ steps.short_sha.outputs.value }}
@@ -135,7 +135,7 @@ jobs:
     name: Update Manifests
     runs-on:
     - self-hosted
-    - micro
+    - small
 
     needs:
     - prepare
