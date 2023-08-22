@@ -39,39 +39,6 @@ jobs:
       run: echo "value=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
 
-  build:
-    if: needs.prepare.outputs.new_release == 'true'
-
-    name: Build
-    runs-on:
-    - self-hosted
-    - medium
-
-    needs:
-    - prepare
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Setup Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.16'
-
-    - name: Cache Go modules
-      uses: actions/cache@v3
-      with:
-        path: ~/go/pkg/mod
-        key: ${{ runner.os }}-build-${{ hashFiles('**/go.sum') }}
-        restore-keys: |
-          ${{ runner.OS }}-build-${{ env.cache-name }}-
-          ${{ runner.OS }}-build-
-          ${{ runner.OS }}-
-
-    - name: Build for test
-      run: make build
-
-
   releases:
     if: needs.prepare.outputs.new_release == 'true'
 
@@ -82,7 +49,7 @@ jobs:
 
     needs:
     - prepare
-    - build
+
 
     steps:
     - name: Create Pre Release
