@@ -85,7 +85,7 @@ jobs:
 
     - name: Login to Amazon ECR
       id: ecr_password
-      uses: aws-actions/amazon-ecr-login@v1
+      uses: aws-actions/amazon-ecr-login@v2
 
     - name: Build and push
       uses: docker/build-push-action@v5
@@ -118,7 +118,7 @@ jobs:
 
     - name: Login to Amazon ECR
       id: ecr_password
-      uses: aws-actions/amazon-ecr-login@v1
+      uses: aws-actions/amazon-ecr-login@v2
 
     - name: Build and push
       uses: docker/build-push-action@v5
