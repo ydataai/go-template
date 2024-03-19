@@ -36,8 +36,9 @@ jobs:
   cancel_previous:
     name: 'Cancel Previous Runs'
     runs-on:
-    - self-hosted
-    - small
+    #- self-hosted
+    #- small
+    - ubuntu-22.04
     timeout-minutes: 3
 
     steps:
@@ -50,8 +51,9 @@ jobs:
   prepare:
     name: Extract Version and Build number
     runs-on:
-    - self-hosted
-    - small
+    #- self-hosted
+    #- small
+    - ubuntu-22.04
 
     outputs:
       build_number: ${{ steps.short_sha.outputs.value }}
@@ -72,8 +74,9 @@ jobs:
   docker-tag-api:
     name: Docker Tag and Push API
     runs-on:
-    - self-hosted
-    - medium
+    #- self-hosted
+    #- medium
+    - ubuntu-22.04
 
     needs:
     - prepare
@@ -103,8 +106,9 @@ jobs:
   docker-tag-manager:
     name: Docker Tag and Push Manager
     runs-on:
-    - self-hosted
-    - medium
+    #- self-hosted
+    #- medium
+    - ubuntu-22.04
 
     needs:
     - prepare
@@ -134,8 +138,9 @@ jobs:
   update-manifests:
     name: Update Manifests
     runs-on:
-    - self-hosted
-    - small
+    #- self-hosted
+    #- small
+    - ubuntu-22.04
 
     needs:
     - prepare
