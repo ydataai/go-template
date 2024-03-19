@@ -13,8 +13,9 @@ jobs:
   prepare:
     name: Calculate Version and Build number
     runs-on:
-    - self-hosted
-    - small
+    #- self-hosted
+    #- small
+    - ubuntu-22.04
 
     outputs:
       build_number: ${{ steps.short_sha.outputs.value }}
@@ -44,8 +45,9 @@ jobs:
 
     name: Dev and Draft Releases
     runs-on:
-    - self-hosted
-    - small
+    #- self-hosted
+    #- small
+    - ubuntu-22.04
 
     needs:
     - prepare
