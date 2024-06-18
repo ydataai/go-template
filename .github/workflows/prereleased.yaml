@@ -91,7 +91,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
 
     - name: Build and push
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       env:
         DOCKER_IMAGE_TAG: ${{ steps.ecr_password.outputs.registry }}/${{ env.API_DOCKER_REPOSITORY }}:${{ needs.prepare.outputs.version }}
       with:
@@ -125,7 +125,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
 
     - name: Build and push
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       env:
         DOCKER_IMAGE_TAG: ${{ steps.ecr_password.outputs.registry }}/${{ env.MANAGER_DOCKER_REPOSITORY }}:${{ needs.prepare.outputs.version }}
       with:
