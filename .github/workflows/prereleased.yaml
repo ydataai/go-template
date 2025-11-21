@@ -78,7 +78,7 @@ jobs:
     - prepare
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v5
@@ -112,7 +112,7 @@ jobs:
     - prepare
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v5
@@ -149,7 +149,7 @@ jobs:
 
     steps:
     - name: Checkout Manifests repo
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: ydataai/manifests
         token: ${{ secrets.ACCESS_TOKEN }}
